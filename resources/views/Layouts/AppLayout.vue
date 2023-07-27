@@ -1,10 +1,11 @@
-<script setup>
+<script lang="ts" setup>
 
 import Sidebar from "../Components/Sidebar.vue";
 import ItemGroup from "../Components/Sidebar/ItemGroup.vue";
 import Item from "../Components/Sidebar/Item.vue";
 import {BuildingOfficeIcon, ArchiveBoxArrowDownIcon, ArchiveBoxXMarkIcon, Cog6ToothIcon } from "@heroicons/vue/24/outline";
 import UtilityBar from "../Components/UtilityBar.vue";
+import { route, current } from "momentum-trail"
 
 </script>
 
@@ -16,7 +17,9 @@ import UtilityBar from "../Components/UtilityBar.vue";
             </template>
 
             <ItemGroup headers="Vezérlőpult">
-               <Item :active="true">
+               <Item  :href="route('dashboard')"
+                      :active="current('dashboard')"
+               >
                    <BuildingOfficeIcon class="h-6 w-6"/>
                    Vezérlőpult
                </Item>

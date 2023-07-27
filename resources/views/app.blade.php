@@ -8,7 +8,7 @@
 
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
-        @vite(['resources/scripts/app.js', 'resources/css/app.css'])
+        @vite(['resources/scripts/app.ts', 'resources/css/app.css'])
         @inertiaHead
     </head>
     <body class="h-full">
