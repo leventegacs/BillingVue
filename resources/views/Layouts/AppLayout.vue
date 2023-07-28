@@ -1,15 +1,5 @@
 <script lang="ts" setup>
-
-import Sidebar from "../Components/Sidebar.vue";
-import ItemGroup from "../Components/Sidebar/ItemGroup.vue";
-import Item from "../Components/Sidebar/Item.vue";
-import {
-    BuildingOfficeIcon,
-    ArchiveBoxArrowDownIcon,
-    ArchiveBoxXMarkIcon,
-    Cog6ToothIcon
-} from "@heroicons/vue/24/outline";
-import UtilityBar from "../Components/UtilityBar.vue";
+import { BuildingOfficeIcon, ArchiveBoxArrowDownIcon, ArchiveBoxXMarkIcon, Cog6ToothIcon} from "@heroicons/vue/24/outline";
 import {route, current} from "momentum-trail"
 </script>
 
