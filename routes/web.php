@@ -14,6 +14,6 @@ use Inertia\Inertia;
 |
 */
 
-Route::get('/', function () {
-    return Inertia::render('Index');
-})->name('dashboard');
+Route::inertia('/index', 'Index', ['test2' => 'test22'])->name('dashboard');
+
+Route::inertia('/inward', 'Inward', ['test' => 'test'])->name('inward');

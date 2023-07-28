@@ -3,30 +3,36 @@
 import Sidebar from "../Components/Sidebar.vue";
 import ItemGroup from "../Components/Sidebar/ItemGroup.vue";
 import Item from "../Components/Sidebar/Item.vue";
-import {BuildingOfficeIcon, ArchiveBoxArrowDownIcon, ArchiveBoxXMarkIcon, Cog6ToothIcon } from "@heroicons/vue/24/outline";
+import {
+    BuildingOfficeIcon,
+    ArchiveBoxArrowDownIcon,
+    ArchiveBoxXMarkIcon,
+    Cog6ToothIcon
+} from "@heroicons/vue/24/outline";
 import UtilityBar from "../Components/UtilityBar.vue";
-import { route, current } from "momentum-trail"
-
+import {route, current} from "momentum-trail"
 </script>
 
 <template>
     <div>
         <sidebar>
             <template #header>
-                <span class="font-mono text-xl font-bold text-vue-light">BillingWith<span class="text-vue-green">Vue</span></span>
+                <span class="font-mono text-xl font-bold text-vue-light">BillingWith<span
+                    class="text-vue-green">Vue</span></span>
             </template>
 
             <ItemGroup headers="Vezérlőpult">
-               <Item  :href="route('dashboard')"
+                <Item :href="route('dashboard')"
                       :active="current('dashboard')"
-               >
-                   <BuildingOfficeIcon class="h-6 w-6"/>
-                   Vezérlőpult
-               </Item>
+                >
+                    <BuildingOfficeIcon class="h-6 w-6"/>
+                    Vezérlőpult
+                </Item>
             </ItemGroup>
 
             <ItemGroup headers="Készlet kezelés">
-                <Item>
+                <Item :href="route('inward')"
+                      :active="current('inward')">
                     <ArchiveBoxArrowDownIcon class="h-6 w-6"/>
                     Bevételezés
                 </Item>
@@ -44,7 +50,7 @@ import { route, current } from "momentum-trail"
             </ItemGroup>
         </sidebar>
         <div class="lg:pl-72">
-            <utility-bar />
+            <utility-bar/>
 
             <main class="py-10">
                 <div class="px-4 sm:px-6 lg:px-8">
