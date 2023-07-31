@@ -9,8 +9,14 @@ declare module 'vue' {
   export interface GlobalComponents {
     Item: typeof import('./../../views/Components/Sidebar/Item.vue')['default']
     ItemGroup: typeof import('./../../views/Components/Sidebar/ItemGroup.vue')['default']
+    Link: typeof import('@inertiajs/vue3')['Link']
+    Menu: typeof import('@headlessui/vue')['Menu']
+    MenuButton: typeof import('@headlessui/vue')['MenuButton']
+    MenuItem: typeof import('@headlessui/vue')['MenuItem']
+    MenuItems: typeof import('@headlessui/vue')['MenuItems']
     Sidebar: typeof import('./../../views/Components/Sidebar.vue')['default']
     Sidebar2: typeof import('./../../views/components/Sidebar2.vue')['default']
+    SiteLogo: typeof import('./../../views/Components/SiteLogo.vue')['default']
     UtilityBar: typeof import('./../../views/Components/UtilityBar.vue')['default']
   }
 }

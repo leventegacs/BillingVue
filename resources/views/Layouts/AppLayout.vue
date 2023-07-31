@@ -1,15 +1,24 @@
 <script lang="ts" setup>
-import { BuildingOfficeIcon, ArchiveBoxArrowDownIcon, ArchiveBoxXMarkIcon, Cog6ToothIcon} from "@heroicons/vue/24/outline";
-import {route, current} from "momentum-trail"
+import {
+    BuildingOfficeIcon,
+    ArchiveBoxArrowDownIcon,
+    ArchiveBoxXMarkIcon,
+    Cog6ToothIcon, CubeTransparentIcon, ChevronDownIcon
+} from "@heroicons/vue/24/outline";
+
+const auth = useAuth()
+
+const logout = () => {
+    router.post(route('logout'));
+};
 </script>
 
 <template>
     <div>
         <sidebar>
-            <template #header>
-                <span class="font-mono text-xl font-bold text-vue-light">BillingWith<span
-                    class="text-vue-green">Vue</span></span>
-            </template>
+          <template #header>
+              <site-logo class="text-xl text-vue-light"/>
+          </template>
 
             <ItemGroup headers="Vezérlőpult">
                 <Item :href="route('dashboard')"
@@ -39,8 +48,39 @@ import {route, current} from "momentum-trail"
                 </Item>
             </ItemGroup>
         </sidebar>
-        <div class="lg:pl-72">
-            <utility-bar/>
+        <div class="lg:pl-72 bg-test min-h-screen">
+            <utility-bar>
+                <template #start>
+                    <div class="relative flex flex-1 items-center">
+                        <CubeTransparentIcon class="h-10 w-10 bg-vue-green rounded-xl p-1" />
+                    </div>
+                </template>
+                <template #end>
+                    <div class="flex items-center gap-x-4 lg:gap-x-6">
+                        <Menu as="div" class="relative inline-block text-left">
+                            <div>
+                                <MenuButton class="inline-flex w-full justify-center items-center gap-x-1.5 rounded-md px-3 py-2 text-sm font-semibold text-gray-900 ring-gray-300">
+                                    <img alt="profile" src="https://i.pravatar.cc/40" class="rounded-3xl">
+
+                                    <div class="flex flex-col text-left">
+                                        {{ auth.name }}
+                                        <span class="text-xs text-gray-500">Adminisztrátor</span>
+                                    </div>
+                                </MenuButton>
+                            </div>
+                            <transition enter-active-class="transition ease-out duration-100" enter-from-class="transform opacity-0 scale-95" enter-to-class="transform opacity-100 scale-100" leave-active-class="transition ease-in duration-75" leave-from-class="transform opacity-100 scale-100" leave-to-class="transform opacity-0 scale-95">
+                                <MenuItems class="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                                    <div class="p-1">
+                                        <MenuItem v-slot="{ active }">
+                                            <button :class="[active ? 'bg-vue-green text-gray-900 rounded-lg' : 'text-gray-700', 'block px-4 py-2 text-xs w-full text-left']" @click.prevent="logout">Kilépés</button>
+                                        </MenuItem>
+                                    </div>
+                                </MenuItems>
+                            </transition>
+                        </Menu>
+                    </div>
+                </template>
+            </utility-bar>
 
             <main class="py-10">
                 <div class="px-4 sm:px-6 lg:px-8">

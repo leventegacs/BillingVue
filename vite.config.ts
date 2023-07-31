@@ -34,11 +34,56 @@ export default defineConfig({
         autoimport({
             vueTemplate: true,
             dts: "resources/scripts/types/auto-imports.d.ts",
-            imports: ["vue"],
+            dirs: ["resources/scripts/composables", "resources/scripts/utils"],
+            imports: [
+                "vue",
+                {
+                    "momentum-trail": ["route", "current"],
+                },
+                {
+                    "@inertiajs/vue3": ["router", "useForm", "usePage", "useRemember"],
+                },
+            ],
         }),
         components({
             dirs: ["resources/views/Components"],
             dts: "resources/scripts/types/components.d.ts",
+            resolvers: [
+                // inertia components
+                (name: string) => {
+                    const components = ["Link", "Head"]
+
+                    if (components.includes(name)) {
+                        return {
+                            name: name,
+                            from: "@inertiajs/vue3",
+                        }
+                    }
+                },
+
+                // layouts
+                (name: string) => {
+                    if (name.endsWith("Layout")) {
+
+                        return {
+                            name: "default",
+                            from: `@/views/Layouts/${name}.vue`,
+                        }
+                    }
+                },
+
+                // headless components
+                (name: string) => {
+                    const components = ["Menu", "MenuButton", "MenuItems", "MenuItem"]
+
+                    if (components.includes(name)) {
+                        return {
+                            name: name,
+                            from: "@headlessui/vue",
+                        }
+                    }
+                },
+            ],
         }),
     ],
 });

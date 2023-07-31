@@ -14,6 +14,10 @@ use Inertia\Inertia;
 |
 */
 
-Route::inertia('/index', 'Index', ['test2' => 'test22'])->name('dashboard');
+Route::middleware('auth')->group(function() {
 
-Route::inertia('/inward', 'Inward', ['test' => 'test'])->name('inward');
+    Route::inertia('/', 'Index')->name('dashboard');
+
+    Route::inertia('/inward', 'Inward')->name('inward');
+
+});
