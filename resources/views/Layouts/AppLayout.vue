@@ -3,10 +3,14 @@ import {
     BuildingOfficeIcon,
     ArchiveBoxArrowDownIcon,
     ArchiveBoxXMarkIcon,
-    Cog6ToothIcon, CubeTransparentIcon, ChevronDownIcon
+    Cog6ToothIcon, CubeTransparentIcon
 } from "@heroicons/vue/24/outline";
 
 const auth = useAuth()
+
+defineProps({
+    title: String
+})
 
 const logout = () => {
     router.post(route('logout'));
@@ -14,6 +18,8 @@ const logout = () => {
 </script>
 
 <template>
+    <Head :title="title" />
+
     <div>
         <sidebar>
           <template #header>
@@ -30,14 +36,22 @@ const logout = () => {
             </ItemGroup>
 
             <ItemGroup headers="Készlet kezelés">
-                <Item :href="route('inward')"
-                      :active="current('inward')">
+                <Item :href="route('admin.inwards.index')"
+                      :active="current('admin.inwards.*')">
                     <ArchiveBoxArrowDownIcon class="h-6 w-6"/>
                     Bevételezés
                 </Item>
                 <Item>
                     <ArchiveBoxXMarkIcon class="h-6 w-6"/>
                     Kivételezés
+                </Item>
+            </ItemGroup>
+
+            <ItemGroup headers="Termék kezelő">
+                <Item :href="route('admin.products.index')"
+                      :active="current('admin.products.*')">
+                    <ArchiveBoxArrowDownIcon class="h-6 w-6"/>
+                    Termékek
                 </Item>
             </ItemGroup>
 
@@ -48,7 +62,7 @@ const logout = () => {
                 </Item>
             </ItemGroup>
         </sidebar>
-        <div class="lg:pl-72 bg-test min-h-screen">
+        <main class="lg:pl-72 bg-test min-h-screen">
             <utility-bar>
                 <template #start>
                     <div class="relative flex flex-1 items-center">
@@ -82,11 +96,7 @@ const logout = () => {
                 </template>
             </utility-bar>
 
-            <main class="py-10">
-                <div class="px-4 sm:px-6 lg:px-8">
-                    <slot/>
-                </div>
-            </main>
-        </div>
+            <slot/>
+        </main>
     </div>
 </template>

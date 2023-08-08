@@ -171,6 +171,10 @@ return [
         App\Providers\FortifyServiceProvider::class,
 
         Lev\User\Providers\UserServiceProvider::class,
+        Lev\Inward\Providers\InwardServiceProvider::class,
+        Lev\Dashboard\Providers\DashboardServiceProvider::class,
+        Lev\Product\Providers\ProductServiceProvider::class,
+
     ])->toArray(),
 
     /*

@@ -7,6 +7,12 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
+    AppHead: typeof import('./../../views/Components/AppHead.vue')['default']
+    AppLayout: typeof import('@/views/Layouts/AppLayout.vue')['default']
+    Card: typeof import('./../../views/Components/Card.vue')['default']
+    Cell: typeof import('./../../views/Components/Table/Cell.vue')['default']
+    Column: typeof import('./../../views/Components/Table/Column.vue')['default']
+    Head: typeof import('@inertiajs/vue3')['Head']
     Item: typeof import('./../../views/Components/Sidebar/Item.vue')['default']
     ItemGroup: typeof import('./../../views/Components/Sidebar/ItemGroup.vue')['default']
     Link: typeof import('@inertiajs/vue3')['Link']
@@ -14,9 +20,13 @@ declare module 'vue' {
     MenuButton: typeof import('@headlessui/vue')['MenuButton']
     MenuItem: typeof import('@headlessui/vue')['MenuItem']
     MenuItems: typeof import('@headlessui/vue')['MenuItems']
+    Paginator: typeof import('./../../views/Components/Table/Paginator.vue')['default']
+    PrimaryButton: typeof import('./../../views/Components/Buttons/PrimaryButton.vue')['default']
+    Row: typeof import('./../../views/Components/Table/Row.vue')['default']
     Sidebar: typeof import('./../../views/Components/Sidebar.vue')['default']
     Sidebar2: typeof import('./../../views/components/Sidebar2.vue')['default']
     SiteLogo: typeof import('./../../views/Components/SiteLogo.vue')['default']
+    Table: typeof import('./../../views/Components/Table.vue')['default']
     UtilityBar: typeof import('./../../views/Components/UtilityBar.vue')['default']
   }
 }
