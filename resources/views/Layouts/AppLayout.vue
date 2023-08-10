@@ -95,8 +95,9 @@ const logout = () => {
                     </div>
                 </template>
             </utility-bar>
-
-            <slot/>
+            <div class="p-10">
+                <slot/>
+            </div>
         </main>
     </div>
 </template>

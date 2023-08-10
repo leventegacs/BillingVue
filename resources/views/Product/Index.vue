@@ -15,15 +15,15 @@ const submit = () => {
 </script>
 <template>
     <AppLayout title="Termékek">
-        <div class="flex gap-5 justify-between pt-7 lg:pt-lg px-9 lg:px-lg items-center mb-8">
+        <div class="flex gap-5 justify-between items-center mb-8">
             <div class="flex items-center flex-wrap sm:gap-y-5">
                 <h1 class="text-vue-dark text-2xl font-semibold mr-4">Termékek</h1>
             </div>
             <div>
-                <PrimaryButton label="Új termék létrehozása"/>
+                <PrimaryButton as="a" :href="route('admin.products.create')" label="Új termék létrehozása"/>
             </div>
         </div>
-        <div class="grid grid-cols-8 px-9 gap-5">
+        <div class="grid grid-cols-8 gap-5">
             <Table>
                 <template #filter>
                     <form @submit.prevent="submit" class="relative mb-4 flex w-full flex-wrap items-stretch col-span-2">
@@ -48,17 +48,17 @@ const submit = () => {
                 </template>
                 <template #head>
                     <Column>ID</Column>
-                    <Column>Termékkód</Column>
                     <Column>Megnevezés</Column>
                     <Column>Nettó ár</Column>
+                    <Column>Termékkód</Column>
                     <Column align="right">Műveletek</Column>
                 </template>
                 <template #body>
                     <Row v-for="product in products.data">
                         <Cell>{{ product.id }}</Cell>
-                        <Cell>{{ product.sku }}</Cell>
                         <Cell>{{ product.name }}</Cell>
                         <Cell>{{ product.net_price }}</Cell>
+                        <Cell>{{ product.identifier }}</Cell>
                         <Cell align="right">
                             <PrimaryButton label="Szerkesztés"/>
                         </Cell>
@@ -66,7 +66,7 @@ const submit = () => {
                 </template>
             </Table>
 
-            <Paginator v-if="products.links" :links="products.links" class="col-span-full"/>
+            <Paginator v-if="products.meta.links" :links="products.meta.links" class="col-span-full"/>
         </div>
     </AppLayout>
 </template>
