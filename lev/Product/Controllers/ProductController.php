@@ -22,6 +22,9 @@ class ProductController extends Controller
                 ->when(request('search'), function($query) {
                     $query->where('name', 'like', '%'.request('search').'%');
                 })
+                ->when(request('sort'), function($query) {
+                    $query->where('name', 'like', '%'.request('search').'%');
+                })
                 ->paginate(20)
                 ->withQueryString()),
             'filters' => ['search' => request('search')],
@@ -50,5 +53,10 @@ class ProductController extends Controller
     public function update(Product $product, UpdateProduct $updateProduct, UpdateProductRequest $request): void
     {
         $updateProduct($product, $request->validated());
+    }
+
+    public function destroy(Product $product): void
+    {
+        $product->delete();
     }
 }

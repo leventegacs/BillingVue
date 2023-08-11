@@ -24,8 +24,6 @@ const sortable = computed(() => {
 });
 
 
-
-
 </script>
 
 <template>

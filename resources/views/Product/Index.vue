@@ -12,6 +12,10 @@ const submit = () => {
     router.get(route('admin.products.index'), {search: search.value}, {preserveState: true, preserveScroll: true})
 }
 
+const sort = (field) => {
+    router.get(route('admin.products.index'), {sort: field}, {preserveState: true, preserveScroll: true})
+}
+
 </script>
 <template>
     <AppLayout title="Termékek">
@@ -64,6 +68,9 @@ const submit = () => {
                         <Cell align="right">
                             <Link :href="route('admin.products.edit', product.id)" class="text-vue-green text-xs">
                                 Szerkesztés
+                            </Link>
+                            <Link :href="route('admin.products.destroy', product.id)" method="delete" as="button" class="text-vue-red text-xs">
+                                Törlés
                             </Link>
                         </Cell>
                     </Row>

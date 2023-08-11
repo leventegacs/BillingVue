@@ -11,6 +11,7 @@ export default {
                 'vue-green': '#42b883',
                 'vue-dark': '#35495e',
                 'vue-light': '#f9fafb',
+                'vue-red': '#b84242',
             }
         }
     },
