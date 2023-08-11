@@ -18,7 +18,7 @@ const align = computed(() => {
 </script>
 
 <template>
-    <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm text-gray-900 sm:px-6"
+    <td class="whitespace-nowrap py-2 pl-4 pr-3 text-sm text-gray-900 sm:px-6"
         :class="align"
     >
         <slot/>

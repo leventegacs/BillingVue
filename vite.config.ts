@@ -37,6 +37,7 @@ export default defineConfig({
             dirs: ["resources/scripts/composables", "resources/scripts/utils"],
             imports: [
                 "vue",
+                "@vueuse/core",
                 {
                     "momentum-trail": ["route", "current"],
                 },

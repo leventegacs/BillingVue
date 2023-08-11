@@ -31,7 +31,7 @@ const sortable = computed(() => {
 <template>
     <th
         scope="col"
-        class="py-3.5 text-sm font-semibold text-gray-900 sm:px-6"
+        class="py-2.5 text-sm font-semibold text-gray-900 sm:px-6"
         :class="align, sortable"
     >
         <slot />

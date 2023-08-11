@@ -2,34 +2,35 @@
 
 import FormSection from "../Components/FormSection.vue";
 
-defineProps({
-    flash: Object
+const props = defineProps({
+    flash: Object,
+    product: Object
 })
 
 const form = useForm({
-    name: null,
-    identifier: null,
-    net_price: null,
+    name: props.product.data.name,
+    identifier: props.product.data.identifier,
+    net_price: props.product.data.net_price
 })
 
-const create = () => {
-    form.post(route('admin.products.store'), {
-        onSuccess: () => form.reset()
+const update = () => {
+    form.put(route('admin.products.update', props.product.data.id), {
+        preserveScroll: true,
     })
 }
 </script>
 
 <template>
-    <AppLayout title="Termék létrehozás">
+    <AppLayout title="Termék módosítás">
         <div class="flex gap-5 justify-between items-center">
             <div class="flex items-center flex-wrap sm:gap-y-5">
-                <h1 class="text-vue-dark text-2xl font-semibold mr-4">Termék létrehozás</h1>
+                <h1 class="text-vue-dark text-2xl font-semibold mr-4">Termék módosítás</h1>
             </div>
         </div>
-        <FormSection :submit="create">
+        <FormSection :submit="update">
             <template #body>
-                <InputGroup class="sm:col-span-full" field="name" label="Megnevezés" :error="form.errors.name" required="true">
-                    <InputText v-model="form.name" placeholder="Add meg a termék nevét"/>
+                <InputGroup class="sm:col-span-full" field="name" label="Megnevezés" :error="form.errors.name">
+                    <InputText v-model="form.name" placeholder="Add meg a termék nevét" required="true" />
                 </InputGroup>
                 <InputGroup class="sm:col-span-3" field="identifier" label="Termékkód" :error="form.errors.identifier">
                     <InputText v-model="form.identifier" placeholder="Add meg a termékkódot" />

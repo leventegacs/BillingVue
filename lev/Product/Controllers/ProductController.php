@@ -3,9 +3,14 @@
 namespace Lev\Product\Controllers;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\RedirectResponse;
 use Inertia\Inertia;
 use Inertia\Response;
+use Lev\Product\Actions\CreateProduct;
+use Lev\Product\Actions\UpdateProduct;
 use Lev\Product\Models\Product;
+use Lev\Product\Requests\CreateProductRequest;
+use Lev\Product\Requests\UpdateProductRequest;
 use Lev\Product\Resources\ProductResource;
 
 class ProductController extends Controller
@@ -28,8 +33,22 @@ class ProductController extends Controller
         return Inertia::render('Product/Create');
     }
 
-    public function store(): Response
+    public function store(CreateProduct $createProduct, CreateProductRequest $request): RedirectResponse
     {
-        dd(1);
+        $createProduct($request->validated());
+
+        return to_route('admin.products.index');
+    }
+
+    public function edit(Product $product): Response
+    {
+        return Inertia::render('Product/Edit', [
+            'product' => new ProductResource($product)
+        ]);
+    }
+
+    public function update(Product $product, UpdateProduct $updateProduct, UpdateProductRequest $request): void
+    {
+        $updateProduct($product, $request->validated());
     }
 }

@@ -10,6 +10,8 @@ class Product extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
+
     protected static function newFactory(): ProductFactory
     {
         return new ProductFactory();

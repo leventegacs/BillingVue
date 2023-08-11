@@ -35,19 +35,19 @@ const logout = () => {
                 </Item>
             </ItemGroup>
 
-            <ItemGroup headers="Készlet kezelés">
+            <ItemGroup headers="Készletkezelő">
                 <Item :href="route('admin.inwards.index')"
                       :active="current('admin.inwards.*')">
                     <ArchiveBoxArrowDownIcon class="h-6 w-6"/>
                     Bevételezés
                 </Item>
-                <Item>
+<!--                <Item>
                     <ArchiveBoxXMarkIcon class="h-6 w-6"/>
                     Kivételezés
-                </Item>
+                </Item>-->
             </ItemGroup>
 
-            <ItemGroup headers="Termék kezelő">
+            <ItemGroup headers="Termékkezelő">
                 <Item :href="route('admin.products.index')"
                       :active="current('admin.products.*')">
                     <ArchiveBoxArrowDownIcon class="h-6 w-6"/>
@@ -55,12 +55,12 @@ const logout = () => {
                 </Item>
             </ItemGroup>
 
-            <ItemGroup headers="Rendszer">
+<!--            <ItemGroup headers="Rendszer">
                 <Item>
                     <Cog6ToothIcon class="h-6 w-6"/>
                     Beállítások
                 </Item>
-            </ItemGroup>
+            </ItemGroup>-->
         </sidebar>
         <main class="lg:pl-72 bg-test min-h-screen">
             <utility-bar>
@@ -95,7 +95,7 @@ const logout = () => {
                     </div>
                 </template>
             </utility-bar>
-            <div class="p-10">
+            <div class="p-10 space-y-6">
                 <slot/>
             </div>
         </main>

@@ -10,7 +10,7 @@ export default {
             colors: {
                 'vue-green': '#42b883',
                 'vue-dark': '#35495e',
-                'vue-light': '#f9fcf7',
+                'vue-light': '#f9fafb',
             }
         }
     },

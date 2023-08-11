@@ -7,6 +7,8 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
+    ActionMessage: typeof import('./../../views/Components/ActionMessage.vue')['default']
+    Alert: typeof import('./../../views/Components/Alert.vue')['default']
     AppHead: typeof import('./../../views/Components/AppHead.vue')['default']
     AppLayout: typeof import('@/views/Layouts/AppLayout.vue')['default']
     Card: typeof import('./../../views/Components/Card.vue')['default']
