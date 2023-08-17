@@ -1,23 +1,24 @@
-<script setup>
+<script setup lang="ts">
 import {MagnifyingGlassIcon} from "@heroicons/vue/24/outline/index.js";
 
+
 let props = defineProps({
-    products: Object,
+    inwards: Object,
     filters: Object,
 })
 
 let search = ref(props.filters.search)
 
 const submit = () => {
-    router.get(route('admin.products.index'), {search: search.value}, {preserveState: true, preserveScroll: true})
+    router.get(route('admin.inwards.index'), {search: search.value}, {preserveState: true, preserveScroll: true})
 }
 
 </script>
 <template>
-    <AppLayout title="Termékek">
+    <AppLayout title="Bevételezés">
         <div class="flex gap-5 justify-between items-center">
             <div class="flex items-center flex-wrap sm:gap-y-5">
-                <h1 class="text-vue-dark text-2xl font-semibold mr-4">Termékek</h1>
+                <h1 class="text-vue-dark text-2xl font-semibold mr-4">Bevételezés</h1>
             </div>
             <div>
                 <Link :href="route('admin.inwards.create')">
@@ -49,20 +50,22 @@ const submit = () => {
                     </form>
                 </template>
                 <template #head>
-                    <Column>ID</Column>
-                    <Column>Megnevezés</Column>
-                    <Column>Nettó ár</Column>
-                    <Column>Termékkód</Column>
+                    <Column>Dokumentum azonosító</Column>
+                    <Column>Partner</Column>
+                    <Column>Dátum</Column>
+                    <Column>Fizetési mód</Column>
+                    <Column>Státusz</Column>
                     <Column align="right">Műveletek</Column>
                 </template>
                 <template #body>
-                    <Row v-for="product in products.data">
-                        <Cell>{{ product.id }}</Cell>
-                        <Cell>{{ product.name }}</Cell>
-                        <Cell>{{ product.net_price }}</Cell>
-                        <Cell>{{ product.identifier }}</Cell>
+                    <Row v-for="inward in inwards.data">
+                        <Cell>{{ inward.document_number }}</Cell>
+                        <Cell>{{ inward.partner }}</Cell>
+                        <Cell>{{ inward.inward_date }}</Cell>
+                        <Cell>{{ inward.payment_type }}</Cell>
+                        <Cell>{{ inward.status }}</Cell>
                         <Cell align="right">
-                            <Link :href="route('admin.products.edit', product.id)" class="text-vue-green text-xs">
+                            <Link :href="route('admin.inwards.edit', inward.id)" class="text-vue-green text-xs">
                                 Szerkesztés
                             </Link>
                         </Cell>
@@ -70,7 +73,7 @@ const submit = () => {
                 </template>
 
                 <template #paginate>
-                    <Paginator v-if="products.meta.links" :links="products.meta.links" class="col-span-full"/>
+                    <Paginator v-if="inwards.meta.links" :links="inwards.meta.links" class="col-span-full"/>
                 </template>
             </Table>
         </div>

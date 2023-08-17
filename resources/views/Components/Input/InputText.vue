@@ -4,8 +4,8 @@ const props = defineProps({
     leading: String,
     addon: String,
     placeholder: String,
-    required: false,
-    modelValue: null
+    modelValue: null,
+    type: String
 })
 
 const emit = defineEmits<{
@@ -25,14 +25,15 @@ const value = useVModel(props, "modelValue", emit)
         </div>
 
         <input
-               class="leading-normal w-px flex-1 border h-10 border-grey-light px-3 relative text-sm"
-               :class="{
+            :type="type"
+            class="leading-normal w-px flex-1 border h-8 border-grey-light px-3 relative text-xs"
+            :class="{
                     'rounded-l-lg' : !leading,
                     'rounded-r-lg' : !addon
                }"
-               :placeholder="placeholder"
-               :value="modelValue"
-               @input="$emit('update:modelValue', $event.target.value)"
+            :placeholder="placeholder"
+            :value="modelValue"
+            @input="$emit('update:modelValue', $event.target.value)"
         >
 
         <div v-if="addon" class="flex -mr-px">

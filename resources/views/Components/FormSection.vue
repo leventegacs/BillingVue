@@ -16,7 +16,11 @@ defineProps({
             <slot name="body"/>
         </div>
 
-        <div class="flex items-center justify-end">
+        <div class="grid grid-cols-1 gap-x-6 gap-y-4 sm:grid-cols-6">
+            <slot name="table"/>
+        </div>
+
+        <div class="flex items-center justify-end space-x-4">
             <slot name="footer"/>
         </div>
     </form>

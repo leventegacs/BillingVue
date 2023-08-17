@@ -18,16 +18,14 @@ class ProductController extends Controller
     public function index(): Response
     {
         return Inertia::render('Product/Index', [
-            'products' => ProductResource::collection(Product::query()
-                ->when(request('search'), function($query) {
-                    $query->where('name', 'like', '%'.request('search').'%');
-                })
-                ->when(request('sort'), function($query) {
-                    $query->where('name', 'like', '%'.request('search').'%');
-                })
-                ->paginate(20)
-                ->withQueryString()),
-            'filters' => ['search' => request('search')],
+            'products' => ProductResource::collection(
+                Product::query()
+                    ->search(request('search'))
+                    ->paginate(20)
+                    ->withQueryString()),
+            'filters' => [
+                'search' => request('search')
+            ],
         ]);
     }
 

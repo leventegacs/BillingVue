@@ -14,6 +14,7 @@
         <tbody class="divide-y divide-gray-200 bg-white">
         <slot name="body" />
         </tbody>
+        <slot name="footer" />
     </table>
     <slot name="paginate" />
 </template>

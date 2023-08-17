@@ -20,10 +20,10 @@ const create = () => {
 </script>
 
 <template>
-    <AppLayout title="Termék létrehozás">
+    <AppLayout title="Új termék">
         <div class="flex gap-5 justify-between items-center">
             <div class="flex items-center flex-wrap sm:gap-y-5">
-                <h1 class="text-vue-dark text-2xl font-semibold mr-4">Termék létrehozás</h1>
+                <h1 class="text-vue-dark text-2xl font-semibold mr-4">Új termék</h1>
             </div>
         </div>
         <FormSection :submit="create">

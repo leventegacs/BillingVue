@@ -2,6 +2,8 @@
 
 namespace Lev\Inward\Enums;
 
+use Illuminate\Support\Collection;
+
 enum PaymentType: String
 {
     case CASH = 'cash';
@@ -15,5 +17,15 @@ enum PaymentType: String
             self::BANK_CARD => 'Bankkártya',
             self::BANK_TRANSFER => 'Átutalás',
         };
+    }
+
+    public static function items(): Collection
+    {
+        return collect(self::cases())->map(function($item) {
+            return [
+                'id' => $item->value,
+                'name' => $item->name()
+            ];
+        });
     }
 }

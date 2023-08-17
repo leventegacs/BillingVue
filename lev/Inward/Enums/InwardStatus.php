@@ -3,7 +3,7 @@
 namespace Lev\Inward\Enums;
 
 
-enum PaymentStatus: String
+enum InwardStatus: String
 {
     case OPEN = 'open';
     case CLOSED = 'closed';
