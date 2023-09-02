@@ -19,7 +19,7 @@ const submit = () => {
 <template>
     <div class="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8 bg-test h-screen">
         <div class="sm:mx-auto sm:w-full sm:max-w-sm flex justify-center">
-            <SiteLogo class="text-vue-dark text-2xl" />
+            <SiteLogo class="text-primary-dark text-2xl" />
         </div>
 
         <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
@@ -41,7 +41,7 @@ const submit = () => {
                 </div>
 
                 <div>
-                    <button type="submit" class="flex w-full justify-center rounded-md bg-vue-green px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-vue-dark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-vue-dark">
+                    <button type="submit" class="flex w-full justify-center rounded-md bg-primary-green-400 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-primary-green-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:bg-primary-green-600">
                         Belépés
                     </button>
                 </div>

@@ -3,9 +3,11 @@
 namespace Lev\Inward\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Lev\Inward\Enums\InwardStatus;
 use Lev\Inward\Enums\PaymentType;
+use Lev\Partner\Models\Partner;
 
 class Inward extends Model
 {
@@ -27,5 +29,10 @@ class Inward extends Model
         $query->when($search, function($query, $search) {
             $query->where('document_number', 'like', "%$search%");
         });
+    }
+
+    public function partner(): BelongsTo
+    {
+        return $this->belongsTo(Partner::class);
     }
 }

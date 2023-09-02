@@ -68,7 +68,7 @@ const logout = () => {
             <utility-bar>
                 <template #start>
                     <div class="relative flex flex-1 items-center">
-                        <CubeTransparentIcon class="h-10 w-10 bg-vue-green rounded-xl p-1" />
+                        <CubeTransparentIcon class="h-10 w-10 bg-primary-green-400 rounded-xl p-1" />
                     </div>
                 </template>
                 <template #end>
@@ -88,7 +88,7 @@ const logout = () => {
                                 <MenuItems class="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                                     <div class="p-1">
                                         <MenuItem v-slot="{ active }">
-                                            <button :class="[active ? 'bg-vue-green text-gray-900 rounded-lg' : 'text-gray-700', 'block px-4 py-2 text-xs w-full text-left']" @click.prevent="logout">Kilépés</button>
+                                            <button :class="[active ? 'bg-primary-green-400 text-white rounded-lg' : 'text-gray-700', 'block px-4 py-2 text-xs w-full text-left']" @click.prevent="logout">Kilépés</button>
                                         </MenuItem>
                                     </div>
                                 </MenuItems>

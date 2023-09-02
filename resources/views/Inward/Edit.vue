@@ -7,13 +7,14 @@ const props = defineProps({
     inward: Object,
     items: Object,
     products: Object,
-    paymentTypes: Object
+    paymentTypes: Object,
+    partners: Object
 })
 
 
 const form = useForm({
     inward_date: props.inward.data.inward_date,
-    partner: props.inward.data.partner,
+    partner_id: props.inward.data.partner_id,
     payment_type: props.inward.data.payment_type,
     comment: props.inward.data.comment,
     items: props.inward.data.items,
@@ -49,7 +50,7 @@ const update = () => {
     <AppLayout title="Bevételezés szerkesztése">
         <div class="flex gap-5 justify-between items-center">
             <div class="flex items-center flex-wrap sm:gap-y-5">
-                <h1 class="text-vue-dark text-2xl font-semibold mr-4">Bevételezés szerkesztése <span class="text-xs">({{ inward.data.document_number }})</span></h1>
+                <h1 class="text-primary-dark text-2xl font-semibold mr-4">Bevételezés szerkesztése <span class="text-xs">({{ inward.data.document_number }})</span></h1>
             </div>
         </div>
         <FormSection :submit="update">
@@ -57,8 +58,8 @@ const update = () => {
                 <InputGroup class="sm:col-span-2" field="inward_date" label="Dátum" :error="form.errors.inward_date" required="true">
                     <InputText v-model="form.inward_date" type="date" />
                 </InputGroup>
-                <InputGroup class="sm:col-span-2" field="partner" label="Partner neve" :error="form.errors.partner" required="true">
-                    <InputText v-model="form.partner" placeholder="Add meg a partner nevét" />
+                <InputGroup class="sm:col-span-2" field="partner_id" label="Partner" :error="form.errors.payment_type" required="true">
+                    <InputSelect v-model="form.partner_id" :items="partners" placeholder="Válassz a partnerek közül"/>
                 </InputGroup>
                 <InputGroup class="sm:col-span-2" field="payment_Type" label="Fizetési mód" :error="form.errors.payment_type" required="true">
                     <InputSelect v-model="form.payment_type" :items="paymentTypes" placeholder="Válassz a fizetési módok közül"/>

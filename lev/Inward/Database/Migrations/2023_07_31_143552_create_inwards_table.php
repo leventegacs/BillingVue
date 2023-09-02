@@ -5,6 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use Lev\Inward\Enums\InwardStatus;
 use Lev\Inward\Enums\PaymentType;
+use Lev\Partner\Models\Partner;
 
 return new class extends Migration
 {
@@ -17,7 +18,7 @@ return new class extends Migration
             $table->id();
             $table->string('document_number')->nullable();
             $table->date('inward_date');
-            $table->string('partner');
+            $table->foreignIdFor(Partner::class);
             $table->string('payment_type');
             $table->string('comment')->nullable();
             $table->date('cancellation_at')->nullable();

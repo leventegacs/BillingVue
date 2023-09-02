@@ -11,7 +11,7 @@ class UpdateInward
     {
         $inward->query()->update([
             'inward_date' => $validated['inward_date'],
-            'partner' => $validated['partner'],
+            'partner_id' => $validated['partner_id'],
             'payment_type' => $validated['payment_type'],
             'comment' => $validated['comment'],
         ]);

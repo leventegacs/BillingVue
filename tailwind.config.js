@@ -8,10 +8,19 @@ export default {
     theme: {
         extend: {
             colors: {
-                'vue-green': '#42b883',
-                'vue-dark': '#35495e',
+                'primary-green': {
+                    400: '#42b883',
+                    500: '#39a978',
+                    600: '#3ba476'
+                },
+                'primary-dark': {
+                    400: '#35495e'
+                },
                 'vue-light': '#f9fafb',
-                'vue-red': '#b84242',
+                'primary-red': {
+                    400 : '#c94848',
+                    600 : '#af4040'
+                },
             }
         }
     },

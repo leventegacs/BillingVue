@@ -18,7 +18,7 @@ const submit = () => {
     <AppLayout title="Bevételezés">
         <div class="flex gap-5 justify-between items-center">
             <div class="flex items-center flex-wrap sm:gap-y-5">
-                <h1 class="text-vue-dark text-2xl font-semibold mr-4">Bevételezés</h1>
+                <h1 class="text-primary-dark text-2xl font-semibold mr-4">Bevételezés</h1>
             </div>
             <div>
                 <Link :href="route('admin.inwards.create')">
@@ -40,7 +40,7 @@ const submit = () => {
 
                         <button
                             @click="submit"
-                            class="relative z-[2] flex items-center rounded-r-md bg-vue-green px-6 py-1.5 text-xs font-medium uppercase leading-tight text-white shadow-md transition duration-150 ease-in-out hover:bg-primary-700 hover:shadow-lg focus:bg-primary-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-primary-800 active:shadow-lg"
+                            class="relative z-[2] flex items-center rounded-r-md bg-primary-green-400 px-6 py-1.5 text-xs font-medium uppercase leading-tight text-white shadow-md transition duration-150 ease-in-out hover:bg-primary-700 hover:shadow-lg focus:bg-primary-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-primary-800 active:shadow-lg"
                             type="button"
                             id="button-addon1"
                             data-te-ripple-init
@@ -65,7 +65,7 @@ const submit = () => {
                         <Cell>{{ inward.payment_type }}</Cell>
                         <Cell>{{ inward.status }}</Cell>
                         <Cell align="right">
-                            <Link :href="route('admin.inwards.edit', inward.id)" class="text-vue-green text-xs">
+                            <Link :href="route('admin.inwards.edit', inward.id)" class="text-primary-green-400 text-xs">
                                 Szerkesztés
                             </Link>
                         </Cell>

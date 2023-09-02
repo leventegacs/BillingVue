@@ -4,6 +4,6 @@
 
 <template>
      <span class="font-mono font-bold">
-         BillingWith<span class="text-vue-green">Vue</span>
+         BillingWith<span class="text-primary-green-400">Vue</span>
      </span>
 </template>

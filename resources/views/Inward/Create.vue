@@ -5,13 +5,14 @@ import { TrashIcon } from "@heroicons/vue/24/outline";
 
 const props = defineProps({
     products: Object,
-    paymentTypes: Object
+    paymentTypes: Object,
+    partners: Object
 })
 
 
 const form = useForm({
     inward_date: null,
-    partner: null,
+    partner_id: null,
     payment_type: null,
     comment: null,
     items: [],
@@ -50,7 +51,7 @@ const create = () => {
     <AppLayout title="Új bevételezés">
         <div class="flex gap-5 justify-between items-center">
             <div class="flex items-center flex-wrap sm:gap-y-5">
-                <h1 class="text-vue-dark text-2xl font-semibold mr-4">Új bevételezés</h1>
+                <h1 class="text-primary-dark text-2xl font-semibold mr-4">Új bevételezés</h1>
             </div>
         </div>
         <FormSection :submit="create">
@@ -58,8 +59,8 @@ const create = () => {
                 <InputGroup class="sm:col-span-2" field="inward_date" label="Dátum" :error="form.errors.inward_date" required="true">
                     <InputText v-model="form.inward_date" type="date" />
                 </InputGroup>
-                <InputGroup class="sm:col-span-2" field="partner" label="Partner neve" :error="form.errors.partner" required="true">
-                    <InputText v-model="form.partner" placeholder="Add meg a partner nevét" />
+                <InputGroup class="sm:col-span-2" field="partner_id" label="Partner" :error="form.errors.payment_type" required="true">
+                    <InputSelect v-model="form.partner_id" :items="partners" placeholder="Válassz a partnerek közül"/>
                 </InputGroup>
                 <InputGroup class="sm:col-span-2" field="payment_Type" label="Fizetési mód" :error="form.errors.payment_type" required="true">
                     <InputSelect v-model="form.payment_type" :items="paymentTypes" placeholder="Válassz a fizetési módok közül"/>

@@ -7,7 +7,7 @@ defineProps({
 </script>
 
 <template>
-    <form @submit.prevent="submit" class="bg-vue-light text-vue-dark border-2 p-4 rounded-lg space-y-8">
+    <form @submit.prevent="submit" class="bg-vue-light text-primary-dark border-2 p-4 rounded-lg space-y-8">
         <div v-if="title || description">
             <h2 class="text-sm font-semibold leading-7 text-gray-900">{{ title }}</h2>
             <p class="mt-1 text-xs leading-6 text-gray-600">{{ description }}</p>

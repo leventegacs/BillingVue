@@ -12,7 +12,7 @@ class UpdateInwardRequest extends FormRequest
     {
         return [
             'inward_date' => ['required', 'date'],
-            'partner' => ['required'],
+            'partner_id' => ['required', 'exists:partners,id'],
             'payment_type' => ['required', new Enum(PaymentType::class)],
             'comment' => ['nullable'],
             'items.*.id' => ['nullable'],
