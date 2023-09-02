@@ -83,7 +83,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'hu',
 
     /*
     |--------------------------------------------------------------------------
@@ -175,6 +175,7 @@ return [
         Lev\Dashboard\Providers\DashboardServiceProvider::class,
         Lev\Product\Providers\ProductServiceProvider::class,
 
+        Lev\Partner\Providers\PartnerServiceProvider::class,
     ])->toArray(),
 
     /*

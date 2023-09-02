@@ -2,8 +2,8 @@
 import {
     BuildingOfficeIcon,
     ArchiveBoxArrowDownIcon,
-    ArchiveBoxXMarkIcon,
-    Cog6ToothIcon, CubeTransparentIcon
+    UsersIcon,
+    CubeTransparentIcon
 } from "@heroicons/vue/24/outline";
 
 const auth = useAuth()
@@ -27,8 +27,8 @@ const logout = () => {
           </template>
 
             <ItemGroup headers="Vezérlőpult">
-                <Item :href="route('dashboard')"
-                      :active="current('dashboard')"
+                <Item :href="route('admin.dashboard')"
+                      :active="current('admin.dashboard')"
                 >
                     <BuildingOfficeIcon class="h-6 w-6"/>
                     Vezérlőpult
@@ -55,12 +55,14 @@ const logout = () => {
                 </Item>
             </ItemGroup>
 
-<!--            <ItemGroup headers="Rendszer">
-                <Item>
-                    <Cog6ToothIcon class="h-6 w-6"/>
-                    Beállítások
+            <ItemGroup headers="Rendszer">
+                <Item :href="route('admin.partners.index')"
+                      :active="current('admin.partners.index')"
+                >
+                    <UsersIcon class="h-6 w-6"/>
+                    Partnerek
                 </Item>
-            </ItemGroup>-->
+            </ItemGroup>
         </sidebar>
         <main class="lg:pl-72 bg-test min-h-screen">
             <utility-bar>

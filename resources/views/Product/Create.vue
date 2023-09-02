@@ -2,10 +2,6 @@
 
 import FormSection from "../Components/FormSection.vue";
 
-defineProps({
-    flash: Object
-})
-
 const form = useForm({
     name: null,
     identifier: null,
@@ -13,10 +9,9 @@ const form = useForm({
 })
 
 const create = () => {
-    form.post(route('admin.products.store'), {
-        onSuccess: () => form.reset()
-    })
+    form.post(route('admin.products.store'))
 }
+
 </script>
 
 <template>
