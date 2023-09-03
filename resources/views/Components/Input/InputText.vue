@@ -26,7 +26,7 @@ const value = useVModel(props, "modelValue", emit)
 
         <input
             :type="type"
-            class="leading-normal w-px flex-1 border h-8 border-grey-light px-3 relative text-xs"
+            class="leading-normal w-px flex-1 border h-8 border-grey-light px-3 relative text-xs disabled:bg-gray-200"
             :class="{
                     'rounded-l-lg' : !leading,
                     'rounded-r-lg' : !addon
@@ -34,6 +34,7 @@ const value = useVModel(props, "modelValue", emit)
             :placeholder="placeholder"
             :value="modelValue"
             @input="$emit('update:modelValue', $event.target.value)"
+            v-bind="$attrs"
         >
 
         <div v-if="addon" class="flex -mr-px">

@@ -74,8 +74,8 @@ const create = () => {
                 <Table class="col-span-full">
                     <template #head>
                         <Column>Termék</Column>
-                        <Column>Nettó egységár</Column>
                         <Column>Darab</Column>
+                        <Column>Nettó egységár</Column>
                         <Column align="right">Műveletek</Column>
                     </template>
                     <template #body>
@@ -84,10 +84,10 @@ const create = () => {
                                 <InputSelect v-model="item.product_id" :items="products" placeholder="Válassz a termékek közül"/>
                             </Cell>
                             <Cell>
-                                <InputText v-model="item.net_price" type="number" addon="Ft" />
+                                <InputText v-model="item.quantity" type="number" />
                             </Cell>
                             <Cell>
-                                <InputText v-model="item.quantity" type="number" />
+                                <InputText v-model="item.net_price" type="number" addon="Ft" />
                             </Cell>
                             <Cell align="right">
                                 <PrimaryButton :icon="TrashIcon" color="red" @click.prevent="deleteItem(index)" />

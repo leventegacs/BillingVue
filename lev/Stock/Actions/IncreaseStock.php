@@ -20,6 +20,6 @@ class IncreaseStock
             $product->stocks()->increment('quantity', $quantity);
         }
 
-        return $stock;
+        return $stock->fresh();
     }
 }

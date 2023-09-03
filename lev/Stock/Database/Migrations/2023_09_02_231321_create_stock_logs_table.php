@@ -13,6 +13,7 @@ return new class extends Migration {
             $table->morphs('eventable');
             $table->foreignIdFor(Product::class);
             $table->integer('quantity');
+            $table->integer('updated_quantity');
             $table->timestamps();
         });
     }

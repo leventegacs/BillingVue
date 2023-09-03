@@ -15,20 +15,13 @@ class UpdateInward
             'payment_type' => $validated['payment_type'],
             'comment' => $validated['comment'],
         ]);
-        //dd(Arr::pluck($validated['items'], 'id'));
-        $inward->items
-            ->whereNotIn('id', Arr::pluck($validated['items'], 'id'))
-            ->each
-            ->delete();
 
         foreach ($validated['items'] as $item) {
-            $inward->items()->updateOrCreate([
-                'id' => $item['id']
-            ],
-                [
-                    'product_id' => $item['product_id'],
-                    'net_price' => $item['net_price'],
-                    'quantity' => $item['quantity'],
+            $inward
+                ->items()
+                ->where('id', $item['id'])
+                ->update([
+                    'net_price' => $item['net_price']
                 ]);
         }
     }

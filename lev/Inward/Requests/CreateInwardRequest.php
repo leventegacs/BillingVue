@@ -17,7 +17,7 @@ class CreateInwardRequest extends FormRequest
             'comment' => ['nullable'],
             'items.*.product_id' => ['required', 'exists:products,id'],
             'items.*.net_price' => ['required', 'integer'],
-            'items.*.quantity' => ['required', 'integer']
+            'items.*.quantity' => ['required', 'integer', 'min:1']
         ];
     }
 }

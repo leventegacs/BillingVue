@@ -20,25 +20,6 @@ const form = useForm({
     items: props.inward.data.items,
 })
 
-const addItem = () => {
-    form.items.push({
-        'id': null,
-        name: null,
-        net_price: null,
-        quantity: null,
-    })
-}
-
-const deleteItem = (index) => {
-    form.items.splice(index, 1)
-}
-
-watch(form.items, () => {
-    if(form.items.length == 0) {
-        addItem();
-    }
-})
-
 const update = () => {
     form.put(route('admin.inwards.update', props.inward.data.id), {
         preserveScroll: true,
@@ -73,30 +54,25 @@ const update = () => {
                 <Table class="col-span-full">
                     <template #head>
                         <Column>Termék</Column>
-                        <Column>Nettó egységár</Column>
                         <Column>Mennyiség</Column>
-                        <Column align="right">Műveletek</Column>
+                        <Column>Nettó egységár</Column>
                     </template>
                     <template #body>
                         <Row v-for="(item, index) in form.items">
                             <Cell>
-                                <InputSelect v-model="item.product_id" :items="products" placeholder="Válassz a termékek közül"/>
+                                <InputSelect v-model="item.product_id" :items="products" placeholder="Válassz a termékek közül" disabled="true" />
+                            </Cell>
+                            <Cell>
+                                <InputText v-model="item.quantity" type="number" addon="db" disabled="true" />
                             </Cell>
                             <Cell>
                                 <InputText v-model="item.net_price" type="number" addon="Ft" />
-                            </Cell>
-                            <Cell>
-                                <InputText v-model="item.quantity" type="number" addon="db" />
-                            </Cell>
-                            <Cell align="right">
-                                <PrimaryButton :icon="TrashIcon" color="red" @click.prevent="deleteItem(index)" />
                             </Cell>
                         </Row>
                     </template>
                 </Table>
             </template>
             <template #footer>
-                <PrimaryButton label="Új tétel" @click.prevent="addItem()" />
                 <PrimaryButton label="Mentés" :disabled="form.processing" />
             </template>
         </FormSection>

@@ -31,7 +31,8 @@ class InwardToStockListener
             ($this->createStockMoveLog)(
                 eventable: $inward,
                 product: $item->product,
-                quantity: $item->quantity
+                quantity: $item->quantity,
+                updatedQuantity: $stock->quantity
             );
         });
     }
