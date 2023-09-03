@@ -25,7 +25,7 @@ class InwardController extends Controller
             'inwards' => InwardResource::collection(
                 Inward::query()
                     ->search(request('search'))
-                    ->paginate(10)
+                    ->paginate(20)
                     ->withQueryString()
             ),
             'filters' => [

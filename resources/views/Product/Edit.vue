@@ -1,10 +1,13 @@
 <script setup lang="ts">
 
 import FormSection from "../Components/FormSection.vue";
+import StockTable from "./Partials/StockTable.vue";
+import StockLogTable from "./Partials/StockLogTable.vue";
 
 const props = defineProps({
-    flash: Object,
-    product: Object
+    product: Object,
+    stock: Number,
+    stockLogs: Object
 })
 
 const form = useForm({
@@ -43,5 +46,10 @@ const update = () => {
                 <PrimaryButton label="Létrehozás" :disabled="form.processing" />
             </template>
         </FormSection>
+
+        <div class="grid grid-cols-8 gap-5">
+            <StockTable :stock="stock" class="col-span-2 h-min"/>
+            <StockLogTable :stockLogs="stockLogs.data" class="col-span-6"/>
+        </div>
     </AppLayout>
 </template>

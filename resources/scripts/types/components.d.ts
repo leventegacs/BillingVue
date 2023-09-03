@@ -11,6 +11,7 @@ declare module 'vue' {
     Alert: typeof import('./../../views/Components/Alert.vue')['default']
     AppHead: typeof import('./../../views/Components/AppHead.vue')['default']
     AppLayout: typeof import('@/views/Layouts/AppLayout.vue')['default']
+    Badge: typeof import('./../../views/Components/Badge.vue')['default']
     Card: typeof import('./../../views/Components/Card.vue')['default']
     Cell: typeof import('./../../views/Components/Table/Cell.vue')['default']
     Column: typeof import('./../../views/Components/Table/Column.vue')['default']

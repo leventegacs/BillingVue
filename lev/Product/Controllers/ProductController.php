@@ -12,6 +12,7 @@ use Lev\Product\Models\Product;
 use Lev\Product\Requests\CreateProductRequest;
 use Lev\Product\Requests\UpdateProductRequest;
 use Lev\Product\Resources\ProductResource;
+use Lev\Stock\Resources\StockLogResource;
 
 class ProductController extends Controller
 {
@@ -44,7 +45,9 @@ class ProductController extends Controller
     public function edit(Product $product): Response
     {
         return Inertia::render('Product/Edit', [
-            'product' => new ProductResource($product)
+            'product' => new ProductResource($product),
+            'stock' => $product->stocks()->value('quantity') ?? 0,
+            'stockLogs' => StockLogResource::collection($product->stockLogs)
         ]);
     }
 

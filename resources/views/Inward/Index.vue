@@ -27,7 +27,7 @@ const submit = () => {
             </div>
         </div>
         <div class="grid grid-cols-8 gap-5">
-            <Table>
+            <Table class="col-span-full">
                 <template #filter>
                     <form @submit.prevent="submit" class="relative mb-4 flex w-full flex-wrap items-stretch col-span-2">
                         <input
@@ -62,8 +62,12 @@ const submit = () => {
                         <Cell>{{ inward.document_number }}</Cell>
                         <Cell>{{ inward.partner }}</Cell>
                         <Cell>{{ inward.inward_date }}</Cell>
-                        <Cell>{{ inward.payment_type }}</Cell>
-                        <Cell>{{ inward.status }}</Cell>
+                        <Cell>
+                            <Badge :label="inward.payment_type" />
+                        </Cell>
+                        <Cell>
+                            <Badge :color="inward.status.color" :label="inward.status.name" />
+                        </Cell>
                         <Cell align="right">
                             <Link :href="route('admin.inwards.edit', inward.id)" class="text-primary-green-400 text-xs">
                                 Szerkesztés

@@ -21,6 +21,7 @@ const updateCity = async () => {
 
     if (city.zips.length === 0) {
         form.city = ''
+        return;
     }
 
     form.city = city.zips[0].name

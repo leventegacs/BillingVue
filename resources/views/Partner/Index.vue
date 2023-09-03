@@ -27,7 +27,7 @@ const submit = () => {
             </div>
         </div>
         <div class="grid grid-cols-8 gap-5">
-            <Table>
+            <Table class="col-span-full">
                 <template #filter>
                     <form @submit.prevent="submit" class="relative mb-4 flex w-full flex-wrap items-stretch col-span-2">
                         <input

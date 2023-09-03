@@ -22,7 +22,7 @@ class PartnerController extends Controller
             'partners' => PartnerResource::collection(
                 Partner::query()
                     ->search(request('search'))
-                    ->paginate(10)
+                    ->paginate(20)
                     ->withQueryString()
             ),
             'filters' => [

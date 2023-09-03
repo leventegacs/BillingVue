@@ -70,7 +70,7 @@ const update = () => {
             </template>
 
             <template #table>
-                <Table>
+                <Table class="col-span-full">
                     <template #head>
                         <Column>Termék</Column>
                         <Column>Nettó egységár</Column>

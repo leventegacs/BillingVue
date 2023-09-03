@@ -16,7 +16,10 @@ class InwardResource extends JsonResource
             'inward_date' => $this->inward_date->format('Y-m-d'),
             'partner' => $this->partner->name,
             'payment_type' => $this->payment_type->name(),
-            'status' => $this->status->name(),
+            'status' => [
+                'color' => $this->status->color(),
+                'name' => $this->status->name()
+            ],
         ];
     }
 }
