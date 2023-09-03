@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Lev\Inward\Models\InwardItem;
 use Lev\Product\Database\Factories\ProductFactory;
+use Lev\Stock\Models\Stock;
 
 class Product extends Model
 {
@@ -31,6 +32,9 @@ class Product extends Model
         return $this->hasMany(InwardItem::class);
     }
 
-
+    public function stocks(): HasMany
+    {
+        return $this->hasMany(Stock::class);
+    }
 
 }

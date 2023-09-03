@@ -5,11 +5,14 @@ namespace Lev\Inward\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Lev\Inward\Enums\InwardStatus;
 use Lev\Inward\Enums\PaymentType;
 use Lev\Partner\Models\Partner;
+use Lev\Stock\Contracts\InteractsWithStock;
+use Lev\Stock\Models\StockLog;
 
-class Inward extends Model
+class Inward extends Model implements InteractsWithStock
 {
     protected $guarded = [];
 
@@ -34,5 +37,10 @@ class Inward extends Model
     public function partner(): BelongsTo
     {
         return $this->belongsTo(Partner::class);
+    }
+
+    public function stockLogs(): MorphMany
+    {
+        return $this->morphMany(StockLog::class, 'eventable');
     }
 }

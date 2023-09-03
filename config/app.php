@@ -176,6 +176,7 @@ return [
         Lev\Product\Providers\ProductServiceProvider::class,
 
         Lev\Partner\Providers\PartnerServiceProvider::class,
+        Lev\Stock\Providers\StockServiceProvider::class,
     ])->toArray(),
 
     /*

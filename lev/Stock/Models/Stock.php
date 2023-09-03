@@ -1,19 +1,14 @@
 <?php
 
-namespace Lev\Inward\Models;
+namespace Lev\Stock\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Lev\Product\Models\Product;
 
-class InwardItem extends Model
+class Stock extends Model
 {
     protected $guarded = [];
-
-    public function inward(): BelongsTo
-    {
-        return $this->belongsTo(Inward::class);
-    }
 
     public function product(): BelongsTo
     {
