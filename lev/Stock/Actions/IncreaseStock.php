@@ -17,7 +17,7 @@ class IncreaseStock
                 'quantity' => $quantity
             ]);
         } else {
-            $product->stocks()->increment('quantity', $quantity);
+            $product->stock()->increment('quantity', $quantity);
         }
 
         return $stock->fresh();

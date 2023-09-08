@@ -46,7 +46,7 @@ class ProductController extends Controller
     {
         return Inertia::render('Product/Edit', [
             'product' => new ProductResource($product),
-            'stock' => $product->stocks()->value('quantity') ?? 0,
+            'stock' => $product->stock->quantity ?? 0,
             'stockLogs' => StockLogResource::collection($product->stockLogs)
         ]);
     }

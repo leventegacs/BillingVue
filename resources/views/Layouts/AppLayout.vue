@@ -3,7 +3,8 @@ import {
     BuildingOfficeIcon,
     ArchiveBoxArrowDownIcon,
     UsersIcon,
-    CubeTransparentIcon
+    CubeTransparentIcon,
+    ArchiveBoxXMarkIcon
 } from "@heroicons/vue/24/outline";
 
 const auth = useAuth()
@@ -41,10 +42,11 @@ const logout = () => {
                     <ArchiveBoxArrowDownIcon class="h-6 w-6"/>
                     Bevételezés
                 </Item>
-<!--                <Item>
+                <Item :href="route('admin.outwards.index')"
+                      :active="current('admin.outwards.*')">
                     <ArchiveBoxXMarkIcon class="h-6 w-6"/>
                     Kivételezés
-                </Item>-->
+                </Item>
             </ItemGroup>
 
             <ItemGroup headers="Termékkezelő">

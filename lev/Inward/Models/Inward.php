@@ -2,12 +2,12 @@
 
 namespace Lev\Inward\Models;
 
+use App\Enums\StockMoveStatus;
+use App\Enums\PaymentType;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
-use Lev\Inward\Enums\InwardStatus;
-use Lev\Inward\Enums\PaymentType;
 use Lev\Partner\Models\Partner;
 use Lev\Stock\Contracts\InteractsWithStock;
 use Lev\Stock\Models\StockLog;
@@ -18,7 +18,7 @@ class Inward extends Model implements InteractsWithStock
 
     protected $casts = [
         'payment_type' => PaymentType::class,
-        'status' => InwardStatus::class,
+        'status' => StockMoveStatus::class,
         'inward_date' => 'date',
     ];
 

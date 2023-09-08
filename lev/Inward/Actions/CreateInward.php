@@ -4,7 +4,6 @@ namespace Lev\Inward\Actions;
 
 use Lev\Inward\Events\CreatedInwardEvent;
 use Lev\Inward\Models\Inward;
-use Lev\Stock\Actions\IncreaseStock;
 
 class CreateInward
 {

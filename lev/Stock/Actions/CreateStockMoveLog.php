@@ -10,7 +10,7 @@ use Lev\Stock\Models\StockLog;
 
 class CreateStockMoveLog
 {
-    public function __invoke(InteractsWithStock $eventable, Product $product, int $quantity, int $updatedQuantity)
+    public function __invoke(InteractsWithStock $eventable, Product $product, int $quantity, int $updatedQuantity): void
     {
         StockLog::query()->create([
             'eventable_type' => $eventable::class,

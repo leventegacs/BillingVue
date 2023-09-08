@@ -5,6 +5,7 @@ namespace Lev\Product\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Lev\Inward\Models\InwardItem;
 use Lev\Product\Database\Factories\ProductFactory;
 use Lev\Stock\Models\Stock;
@@ -33,9 +34,9 @@ class Product extends Model
         return $this->hasMany(InwardItem::class);
     }
 
-    public function stocks(): HasMany
+    public function stock(): HasOne
     {
-        return $this->hasMany(Stock::class);
+        return $this->hasOne(Stock::class);
     }
 
     public function stockLogs(): HasMany

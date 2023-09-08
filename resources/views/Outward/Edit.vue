@@ -4,39 +4,41 @@ import FormSection from "../Components/FormSection.vue";
 import { TrashIcon } from "@heroicons/vue/24/outline";
 
 const props = defineProps({
-    inward: Object,
+    outward: Object,
     products: Object,
     paymentTypes: Object,
     partners: Object
 })
 
+console.log(props.outward.data)
+
 
 const form = useForm({
-    inward_date: props.inward.data.inward_date,
-    partner_id: props.inward.data.partner_id,
-    payment_type: props.inward.data.payment_type,
-    comment: props.inward.data.comment,
-    items: props.inward.data.items,
+    outward_date: props.outward.data.outward_date,
+    partner_id: props.outward.data.partner_id,
+    payment_type: props.outward.data.payment_type,
+    comment: props.outward.data.comment,
+    items: props.outward.data.items,
 })
 
 const update = () => {
-    form.put(route('admin.inwards.update', props.inward.data.id), {
+    form.put(route('admin.outwards.update', props.outward.data.id), {
         preserveScroll: true,
     })
 }
 </script>
 
 <template>
-    <AppLayout title="Bevételezés szerkesztése">
+    <AppLayout title="Kivételezés szerkesztése">
         <div class="flex gap-5 justify-between items-center">
             <div class="flex items-center flex-wrap sm:gap-y-5">
-                <h1 class="text-primary-dark text-2xl font-semibold mr-4">Bevételezés szerkesztése <span class="text-xs">({{ inward.data.document_number }})</span></h1>
+                <h1 class="text-primary-dark text-2xl font-semibold mr-4">Kivételezés szerkesztése <span class="text-xs">({{ outward.data.document_number }})</span></h1>
             </div>
         </div>
         <FormSection :submit="update">
             <template #body>
-                <InputGroup class="sm:col-span-2" field="inward_date" label="Dátum" :error="form.errors.inward_date" required="true">
-                    <InputText v-model="form.inward_date" type="date" />
+                <InputGroup class="sm:col-span-2" field="outward_date" label="Dátum" :error="form.errors.outward_date" required="true">
+                    <InputText v-model="form.outward_date" type="date" />
                 </InputGroup>
                 <InputGroup class="sm:col-span-2" field="partner_id" label="Partner" :error="form.errors.payment_type" required="true">
                     <InputSelect v-model="form.partner_id" :items="partners" placeholder="Válassz a partnerek közül"/>

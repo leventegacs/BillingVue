@@ -16,7 +16,7 @@ class InwardFormResource extends JsonResource
             'partner_id' => $this->partner->id,
             'payment_type' => $this->payment_type,
             'comment' => $this->comment,
-            'items' => InwardItemsResource::collection($this->items)
+            'items' => InwardItemResource::collection($this->items)
         ];
     }
 }

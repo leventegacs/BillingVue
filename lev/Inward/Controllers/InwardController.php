@@ -2,13 +2,13 @@
 
 namespace Lev\Inward\Controllers;
 
+use App\Enums\PaymentType;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
 use Inertia\Inertia;
 use Inertia\Response;
 use Lev\Inward\Actions\CreateInward;
 use Lev\Inward\Actions\UpdateInward;
-use Lev\Inward\Enums\PaymentType;
 use Lev\Inward\Models\Inward;
 use Lev\Inward\Requests\CreateInwardRequest;
 use Lev\Inward\Requests\UpdateInwardRequest;
@@ -54,7 +54,6 @@ class InwardController extends Controller
     {
         return Inertia::render('Inward/Edit', [
             'inward' => new InwardFormResource($inward),
-            'products' => Product::query()->select('id', 'name')->get(),
             'paymentTypes' => PaymentType::items(),
             'partners' => Partner::query()->select('id', 'name')->get()
         ]);

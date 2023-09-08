@@ -2,9 +2,9 @@
 
 namespace Lev\Inward\Requests;
 
+use App\Enums\PaymentType;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rules\Enum;
-use Lev\Inward\Enums\PaymentType;
 
 class UpdateInwardRequest extends FormRequest
 {
@@ -15,10 +15,8 @@ class UpdateInwardRequest extends FormRequest
             'partner_id' => ['required', 'exists:partners,id'],
             'payment_type' => ['required', new Enum(PaymentType::class)],
             'comment' => ['nullable'],
-            'items.*.id' => ['nullable'],
-            'items.*.product_id' => ['required', 'exists:products,id'],
+            'items.*.id' => ['required'],
             'items.*.net_price' => ['required', 'integer'],
-            'items.*.quantity' => ['required', 'integer', 'min:1']
         ];
     }
 }

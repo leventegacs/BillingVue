@@ -1,6 +1,6 @@
 <?php
 
-namespace Lev\Inward\Enums;
+namespace App\Enums;
 
 use Illuminate\Support\Collection;
 

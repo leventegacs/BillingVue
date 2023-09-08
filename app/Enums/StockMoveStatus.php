@@ -1,11 +1,9 @@
 <?php
 
-namespace Lev\Inward\Enums;
+namespace App\Enums;
 
 
-use PhpParser\Node\Scalar\String_;
-
-enum InwardStatus: String
+enum StockMoveStatus: String
 {
     case OPEN = 'open';
     case CLOSED = 'closed';
