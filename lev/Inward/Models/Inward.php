@@ -43,4 +43,13 @@ class Inward extends Model implements InteractsWithStock
     {
         return $this->morphMany(StockLog::class, 'eventable');
     }
+
+    public function route(): string
+    {
+        if($this->status === StockMoveStatus::CLOSED) {
+            return route('admin.inwards.show', $this->id);
+        }
+
+        return route('admin.inwards.edit', $this->id);
+    }
 }

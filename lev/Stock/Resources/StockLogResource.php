@@ -4,6 +4,7 @@ namespace Lev\Stock\Resources;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
+use Lev\Inward\Models\Inward;
 
 /** @mixin \Lev\Stock\Models\StockLog */
 class StockLogResource extends JsonResource
@@ -12,7 +13,7 @@ class StockLogResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'action' => 'Bevételezés',
+            'action' => $this->eventable_type === Inward::class ? 'Bevételezés' : 'Kivételezés',
             'identifier' => $this->eventable->document_number,
             'quantity' => $this->quantity
         ];

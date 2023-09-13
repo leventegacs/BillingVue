@@ -36,4 +36,13 @@ class Outward extends Model implements InteractsWithStock
             $query->where('document_number', 'like', "%$search%");
         });
     }
+
+    public function route(): string
+    {
+        if($this->status === StockMoveStatus::CLOSED) {
+            return route('admin.outwards.show', $this->id);
+        }
+
+        return route('admin.outwards.edit', $this->id);
+    }
 }

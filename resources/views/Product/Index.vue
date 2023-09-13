@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import {MagnifyingGlassIcon} from "@heroicons/vue/24/outline/index.js";
 
 let props = defineProps({
@@ -10,10 +10,6 @@ let search = ref(props.filters.search)
 
 const submit = () => {
     router.get(route('admin.products.index'), {search: search.value}, {preserveState: true, preserveScroll: true})
-}
-
-const sort = (field) => {
-    router.get(route('admin.products.index'), {sort: field}, {preserveState: true, preserveScroll: true})
 }
 
 </script>
@@ -36,7 +32,7 @@ const sort = (field) => {
                         <input
                             v-model="search"
                             type="search"
-                            class="text-sm relative m-0 -mr-0.5 block w-[1px] min-w-0 flex-auto rounded-l-md border border-solid border-neutral-300 bg-vue-light bg-clip-padding px-3 py-[0.25rem] leading-[1.6] text-neutral-700 outline-none transition duration-200 ease-in-out focus:z-[3] focus:border-primary focus:text-neutral-700 focus:shadow-[inset_0_0_0_1px_rgb(59,113,202)] focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:focus:border-primary"
+                            class="text-sm relative m-0 -mr-0.5 block w-[1px] min-w-0 flex-auto rounded-l-md border border-solid border-neutral-300 bg-primary-light-400 bg-clip-padding px-3 py-[0.25rem] leading-[1.6] text-neutral-700 outline-none transition duration-200 ease-in-out focus:z-[3] focus:border-primary focus:text-neutral-700 focus:shadow-[inset_0_0_0_1px_rgb(59,113,202)] focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:focus:border-primary"
                             placeholder="Keresés..."
                             aria-label="Search"
                             aria-describedby="button-addon1"/>
@@ -68,9 +64,6 @@ const sort = (field) => {
                         <Cell align="right">
                             <Link :href="route('admin.products.edit', product.id)" class="text-primary-green-400 text-xs">
                                 Szerkesztés
-                            </Link>
-                            <Link :href="route('admin.products.destroy', product.id)" method="delete" as="button" class="text-primary-red-400 text-xs">
-                                Törlés
                             </Link>
                         </Cell>
                     </Row>

@@ -15,6 +15,7 @@ use Lev\Outward\Requests\CreateOutwardRequest;
 use Lev\Outward\Requests\UpdateOutwardRequest;
 use Lev\Outward\Resources\OutwardFormResource;
 use Lev\Outward\Resources\OutwardResource;
+use Lev\Outward\Resources\OutwardShowResource;
 use Lev\Partner\Models\Partner;
 use Lev\Product\Models\Product;
 use Lev\Stock\Exceptions\ProductShortage;
@@ -69,5 +70,12 @@ class OutwardController extends Controller
         $updateOutward($outward, $request->validated());
 
         return back(303);
+    }
+
+    public function show(Outward $outward): Response
+    {
+        return Inertia::render('Outward/Show', [
+            'outward' => new OutwardShowResource($outward),
+        ]);
     }
 }

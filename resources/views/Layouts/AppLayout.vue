@@ -24,7 +24,7 @@ const logout = () => {
     <div>
         <sidebar>
           <template #header>
-              <site-logo class="text-xl text-vue-light"/>
+              <site-logo class="text-xl text-primary-light-400"/>
           </template>
 
             <ItemGroup headers="Vezérlőpult">

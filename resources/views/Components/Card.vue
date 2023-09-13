@@ -3,7 +3,7 @@
 </script>
 
 <template>
-    <div class="bg-vue-light text-primary-dark border-2 p-4 rounded-lg space-y-6">
+    <div class="bg-primary-light-400 text-primary-dark border-2 p-4 rounded-lg space-y-6">
         <div class="font-bold text-lg" v-if="$slots.header">
             <slot name="header"/>
         </div>

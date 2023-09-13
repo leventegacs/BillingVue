@@ -22,6 +22,7 @@ const value = useVModel(props, "modelValue", emit)
             :value="modelValue"
             @input="$emit('update:modelValue', $event.target.value)"
             :rows="rows"
+            v-bind="$attrs"
         />
     </div>
 </template>

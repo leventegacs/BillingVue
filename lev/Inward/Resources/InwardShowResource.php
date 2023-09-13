@@ -5,8 +5,7 @@ namespace Lev\Inward\Resources;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-
-class InwardResource extends JsonResource
+class InwardShowResource extends JsonResource
 {
     public function toArray(Request $request): array
     {
@@ -14,13 +13,10 @@ class InwardResource extends JsonResource
             'id' => $this->id,
             'document_number' => $this->document_number,
             'inward_date' => $this->inward_date->format('Y-m-d'),
-            'partner' => $this->partner->name,
+            'partner_id' => $this->partner->name,
             'payment_type' => $this->payment_type->name(),
-            'status' => [
-                'color' => $this->status->color(),
-                'name' => $this->status->name()
-            ],
-            'edit_route' => $this->route()
+            'comment' => $this->comment,
+            'items' => InwardItemResource::collection($this->items),
         ];
     }
 }

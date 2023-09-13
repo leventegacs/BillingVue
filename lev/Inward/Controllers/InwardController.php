@@ -14,6 +14,7 @@ use Lev\Inward\Requests\CreateInwardRequest;
 use Lev\Inward\Requests\UpdateInwardRequest;
 use Lev\Inward\Resources\InwardFormResource;
 use Lev\Inward\Resources\InwardResource;
+use Lev\Inward\Resources\InwardShowResource;
 use Lev\Partner\Models\Partner;
 use Lev\Product\Models\Product;
 
@@ -64,5 +65,12 @@ class InwardController extends Controller
         $updateInward($inward, $updateInwardRequest->validated());
 
         return back(303);
+    }
+
+    public function show(Inward $inward): Response
+    {
+        return Inertia::render('Inward/Show', [
+            'inward' => new InwardShowResource($inward),
+        ]);
     }
 }

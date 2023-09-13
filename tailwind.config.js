@@ -16,7 +16,10 @@ export default {
                 'primary-dark': {
                     400: '#35495e'
                 },
-                'vue-light': '#f9fafb',
+                'primary-light': {
+                    400 : '#f9fafb',
+                    600 : '#e9e9ea',
+                },
                 'primary-red': {
                     400 : '#c94848',
                     600 : '#af4040'

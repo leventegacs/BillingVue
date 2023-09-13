@@ -21,6 +21,8 @@ const update = () => {
         preserveScroll: true,
     })
 }
+
+
 </script>
 
 <template>

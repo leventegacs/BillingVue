@@ -1,7 +1,7 @@
 <script setup lang="ts">
 
 import FormSection from "../Components/FormSection.vue";
-import { TrashIcon } from "@heroicons/vue/24/outline";
+import { TrashIcon } from "@heroicons/vue/24/solid";
 
 const props = defineProps({
     products: Object,
@@ -90,7 +90,7 @@ const create = () => {
                                 <InputText v-model="item.net_price" type="number" addon="Ft" />
                             </Cell>
                             <Cell align="right">
-                                <PrimaryButton :icon="TrashIcon" color="red" @click.prevent="deleteItem(index)" />
+                                <PrimaryButton :icon="TrashIcon" color="danger" @click.prevent="deleteItem(index)" />
                             </Cell>
                         </Row>
                     </template>
