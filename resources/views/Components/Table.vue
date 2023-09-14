@@ -1,5 +1,4 @@
 <script setup lang="ts">
-
 </script>
 
 <template>
@@ -9,12 +8,13 @@
         v-bind="$attrs"
     >
         <thead class="bg-gray-50">
-        <tr class="last">
-            <slot name="head" />
-        </tr>
+            <tr class="last">
+                <slot name="head" />
+            </tr>
         </thead>
-        <tbody class="divide-y divide-gray-200 bg-white">
-            <slot name="body" />
+        <tbody class="divide-y divide-gray-200 bg-white" v-if="$slots.body">
+            <slot name="body"/>
+            <slot name="empty" />
         </tbody>
         <slot name="footer" />
     </table>

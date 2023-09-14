@@ -45,7 +45,7 @@ const update = () => {
                 </InputGroup>
             </template>
             <template #footer>
-                <PrimaryButton label="Létrehozás" :disabled="form.processing" />
+                <PrimaryButton label="Mentés" :disabled="form.processing" />
             </template>
         </FormSection>
 

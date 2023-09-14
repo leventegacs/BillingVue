@@ -18,5 +18,9 @@
                 <Cell align="right">{{ log.quantity }} darab</Cell>
             </Row>
         </template>
+
+        <template #empty v-if="props.stockLogs.length === 0">
+            <Empty colspan="6" />
+        </template>
     </Table>
 </template>

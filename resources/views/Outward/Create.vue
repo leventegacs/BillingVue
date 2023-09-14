@@ -55,7 +55,7 @@ const create = () => {
                 <h1 class="text-primary-dark text-2xl font-semibold mr-4">Új kivételezés</h1>
             </div>
         </div>
-        
+
 
         <FormSection :submit="create">
             <template #body>

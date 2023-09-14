@@ -76,6 +76,10 @@ const submit = () => {
                     </Row>
                 </template>
 
+                <template #empty v-if="inwards.data.length === 0">
+                    <Empty colspan="6" />
+                </template>
+
                 <template #paginate>
                     <Paginator v-if="inwards.meta.links" :links="inwards.meta.links" class="col-span-full"/>
                 </template>

@@ -97,7 +97,8 @@ const create = () => {
                 </Table>
             </template>
             <template #footer>
-                <PrimaryButton label="Hozzzáadás" @click.prevent="addItem()" /><PrimaryButton label="Létrehozás" :disabled="form.processing" />
+                <PrimaryButton label="Hozzzáadás" @click.prevent="addItem()" />
+                <PrimaryButton label="Létrehozás" :disabled="form.processing" />
             </template>
         </FormSection>
     </AppLayout>

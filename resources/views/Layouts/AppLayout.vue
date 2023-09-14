@@ -4,7 +4,8 @@ import {
     ArchiveBoxArrowDownIcon,
     UsersIcon,
     CubeTransparentIcon,
-    ArchiveBoxXMarkIcon
+    ArchiveBoxXMarkIcon,
+    CircleStackIcon
 } from "@heroicons/vue/24/outline";
 
 const auth = useAuth()
@@ -36,12 +37,15 @@ const logout = () => {
                 </Item>
             </ItemGroup>
 
-            <ItemGroup headers="Készletkezelő">
+            <ItemGroup headers="Bejövő készlet">
                 <Item :href="route('admin.inwards.index')"
                       :active="current('admin.inwards.*')">
                     <ArchiveBoxArrowDownIcon class="h-6 w-6"/>
                     Bevételezés
                 </Item>
+            </ItemGroup>
+
+            <ItemGroup headers="Kimenő készlet">
                 <Item :href="route('admin.outwards.index')"
                       :active="current('admin.outwards.*')">
                     <ArchiveBoxXMarkIcon class="h-6 w-6"/>
@@ -52,7 +56,7 @@ const logout = () => {
             <ItemGroup headers="Termékkezelő">
                 <Item :href="route('admin.products.index')"
                       :active="current('admin.products.*')">
-                    <ArchiveBoxArrowDownIcon class="h-6 w-6"/>
+                    <CircleStackIcon class="h-6 w-6"/>
                     Termékek
                 </Item>
             </ItemGroup>

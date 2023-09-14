@@ -17,6 +17,7 @@ declare module 'vue' {
     CloseStockMove: typeof import('./../../views/Components/Modal/CloseStockMove.vue')['default']
     Column: typeof import('./../../views/Components/Table/Column.vue')['default']
     ConfirmDelete: typeof import('./../../views/Components/Modal/ConfirmDelete.vue')['default']
+    Empty: typeof import('./../../views/Components/Table/Empty.vue')['default']
     FormSection: typeof import('./../../views/Components/FormSection.vue')['default']
     Head: typeof import('@inertiajs/vue3')['Head']
     InputGroup: typeof import('./../../views/Components/InputGroup.vue')['default']
